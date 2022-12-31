@@ -6,7 +6,7 @@ const cors = require('./cors');
 const campsiteRouter = express.Router();
 
 campsiteRouter.route('/')
-.options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
+    .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
     .get(cors.cors, (req, res, next) => {
         Campsite.find()
             .populate('comments.author')
@@ -42,7 +42,7 @@ campsiteRouter.route('/')
     });
 
 campsiteRouter.route('/:campsiteId')
-.options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
+    .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
     .get(cors.cors, (req, res, next) => {
         Campsite.findById(req.params.campsiteId)
             .populate('comments.author')
@@ -79,7 +79,7 @@ campsiteRouter.route('/:campsiteId')
     });
 
 campsiteRouter.route('/:campsiteId/comments')
-.options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
+    .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
     .get(cors.cors, (req, res, next) => {
         Campsite.findById(req.params.campsiteId)
             .populate('comments.author')
@@ -145,7 +145,7 @@ campsiteRouter.route('/:campsiteId/comments')
     });
 
 campsiteRouter.route('/:campsiteId/comments/:commentId')
-.options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
+    .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
     .get(cors.cors, (req, res, next) => {
         Campsite.findById(req.params.campsiteId)
             .populate('comments.author')
